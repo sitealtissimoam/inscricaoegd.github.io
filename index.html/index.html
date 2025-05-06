@@ -21,6 +21,7 @@
       height: 100vh;
       overflow-x: hidden;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      transition: opacity 0.5s ease;
     }
     .page {
       display: none;
@@ -370,9 +371,45 @@ footer {
         <h2>NÃO FOI PARA O EGD 2025?</h2>
      <h5>OLHA SÓ O QUE VOCÊ PERDEU NO ENCONTRO PASSADO 👇</h5>
      <br>
-     </div>
-     <br>
-     <video src="SnapInsta.mp4" style="border-radius: 20px; margin: 0 auto; width: 500px;;" controls autoplay playsinline ></video>
+    </div> <br>
+    <div class="video-container">
+      
+      <video
+      autoplay muted playsinline loop controls preload="auto">
+        <source src="SnapInsta.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+      </video>
+      
+      </div>
+      <br>
+      <div class="video-containers">
+        <div class="video-item">
+          <video controls autoplay muted loop playsinline preload="auto">
+            <source src="EGD3.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+          </video>
+        </div>
+        <div class="video-item">
+          <video controls autoplay  muted loop preload="auto">
+            <source src="EGD.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+          </video>
+        </div>
+        <div class="video-item">
+          <video controls autoplay muted loop preload="auto">
+            <source src="EGD2.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+          </video>
+        </div>
+       </div>
+       <br>
+       <div class="video-container">
+        <video autoplay muted playsinline loop controls preload="auto">
+          <source src="WhatsApp Video 2025-03-09 at 12.02.22.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos.
+        </video>
+        
+        </div>
       <br>
       <div class="highlight-box6">
         <br>
@@ -509,12 +546,8 @@ footer {
   </div>
 </div>
 
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-  emailjs.init('bAdFx_yZma_XuIwtl');
-
-  function goToPage(pageNumber, push = true) {
+function goToPage(pageNumber, push = true) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page' + pageNumber).classList.add('active');
 
@@ -523,55 +556,6 @@ footer {
   }
 }
 
-
-  document.getElementById('inscricaoForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-
-    if(!document.getElementById('consent').checked) {
-      alert('Você precisa aceitar o termo de consentimento.');
-      return;
-    }
-
-    const formData = {
-      nome: document.getElementById('nome').value,
-      telefone: document.getElementById('telefone').value,
-      email: document.getElementById('email').value,
-      idade: document.getElementById('idade').value,
-      responsavel: document.getElementById('responsavel').value,
-      congregacao: document.getElementById('congregacao').value,
-      ga: document.getElementById('ga').value,
-      medicamentos: document.getElementById('medicamentos').value,
-      restricoes: document.getElementById('restricoes').value,
-      egdAntes: document.getElementById('egdAntes').value,
-      transporte: document.getElementById('transporte').value
-    };
-
-    emailjs.send('service_1vpmg3i', 'template_vf13zpf', formData)
-      .then(() => {
-        personalizeMessage(formData.nome);
-        goToPage(3);
-      }, (error) => {
-        alert('Erro ao enviar inscrição. Tente novamente.');
-        console.log(error);
-      });
-  });
-
-  function personalizeMessage(fullName) {
-    const firstName = fullName.split(' ')[0];
-    const genderSuffix = (firstName.endsWith('a') || firstName.endsWith('e')) ? 'preparada' : 'preparado';
-    document.getElementById('textoAgradecimento').innerHTML = `Aeee ${firstName}! Agora você está ${genderSuffix} para viver o sobrenatural de Deus.`;
-  }
-
-  function sendWhatsApp(person) {
-    const phoneTalita = '+559282358893';
-    const phonePriscila = '+559296127170';
-    const phone = person === 'Talita' ? phoneTalita : phonePriscila;
-    window.open(`https://wa.me/${phone}`, '_blank');
-  }
-  function irParaPagina(pagina) {
-  window.location.href = 'pagina' + pagina + '.html';
-}
 
 // Ao carregar a página, verifica se tem hash (ex: #page2)
 window.addEventListener('load', () => {
@@ -586,9 +570,6 @@ window.addEventListener('popstate', function (event) {
   const page = (event.state && event.state.page) || '1';
   goToPage(page, false);
 });
-
-
 </script>
 </body>
 </html>
-
