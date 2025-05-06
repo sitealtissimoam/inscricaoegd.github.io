@@ -21,7 +21,6 @@
       height: 100vh;
       overflow-x: hidden;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-      transition: opacity 0.5s ease;
     }
     .page {
       display: none;
@@ -148,56 +147,7 @@
         font-family: Verdrgba(0, 0, 0, 0.555)va, Tahoma, sans-serif;
         font-size: 15px;
     }
-    .video-container {
-  position: relative;
-  width: 100%;  /* Ou um valor fixo, como 80%, dependendo do seu layout */
-  padding-top: 56.25%; /* Isso cria uma proporção de 16:9 (9/16 = 0.5625 = 56.25%) */
-  background-color: rgba(0, 0, 0, 0);  /* Fica visível caso o vídeo não tenha fundo */
-}
-.video-container video {
-  transition: transform 0.3s ease;
-  border: 3px solid #0059ffda;
-  box-shadow: 0 0 10px #0059ffda, 0 0 50px #0059ffda;
-  border-radius: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Garantir que o vídeo ocupe o espaço todo sem distorcer */
-}
-.video-container:hover video {
-  transform: scale(1.05); /* ou 1.1 para mais zoom */
-}
-.video-containers {
-
-  display: flex; /* Organiza os vídeos lado a lado */
-  justify-content: space-between; /* Espaço entre os vídeos */
-  gap: 20px; /* Espaço entre os vídeos */
-}
-.video-item {
-
-  border: 3px solid #0059ffda;
-  box-shadow: 0 0 10px #0059ffda, 0 0 50px #0059ffda;
-  border-radius: 20px;
-  position: relative;
-  width: 30%; /* Define a largura de cada vídeo como 30% */
-  padding-top: 30%; /* Isso faz com que a altura seja igual à largura, criando um quadrado */
-  background-color: rgba(0, 0, 0, 0); /* Fallback caso o vídeo não carregue */
-}
-.video-item video {
-  border-radius: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Faz o vídeo preencher todo o quadrado sem distorcer */
-  transition: transform 0.3s ease; /* Suaviza o zoom */
-}
-.video-item:hover video {
-  transform: scale(1.05); /* Zoom de 5% ao passar o mouse */
-}
+    
 .meu-link {
   text-decoration: none; /* Tira o sublinhado */
   color: #ffffff; /* Muda a cor do texto (azul, por exemplo) */
@@ -546,8 +496,12 @@ footer {
   </div>
 </div>
 
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-function goToPage(pageNumber, push = true) {
+  emailjs.init('bAdFx_yZma_XuIwtl');
+
+  function goToPage(pageNumber, push = true) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page' + pageNumber).classList.add('active');
 
@@ -556,6 +510,55 @@ function goToPage(pageNumber, push = true) {
   }
 }
 
+
+  document.getElementById('inscricaoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+
+    if(!document.getElementById('consent').checked) {
+      alert('Você precisa aceitar o termo de consentimento.');
+      return;
+    }
+
+    const formData = {
+      nome: document.getElementById('nome').value,
+      telefone: document.getElementById('telefone').value,
+      email: document.getElementById('email').value,
+      idade: document.getElementById('idade').value,
+      responsavel: document.getElementById('responsavel').value,
+      congregacao: document.getElementById('congregacao').value,
+      ga: document.getElementById('ga').value,
+      medicamentos: document.getElementById('medicamentos').value,
+      restricoes: document.getElementById('restricoes').value,
+      egdAntes: document.getElementById('egdAntes').value,
+      transporte: document.getElementById('transporte').value
+    };
+
+    emailjs.send('service_1vpmg3i', 'template_vf13zpf', formData)
+      .then(() => {
+        personalizeMessage(formData.nome);
+        goToPage(3);
+      }, (error) => {
+        alert('Erro ao enviar inscrição. Tente novamente.');
+        console.log(error);
+      });
+  });
+
+  function personalizeMessage(fullName) {
+    const firstName = fullName.split(' ')[0];
+    const genderSuffix = (firstName.endsWith('a') || firstName.endsWith('e')) ? 'preparada' : 'preparado';
+    document.getElementById('textoAgradecimento').innerHTML = `Aeee ${firstName}! Agora você está ${genderSuffix} para viver o sobrenatural de Deus.`;
+  }
+
+  function sendWhatsApp(person) {
+    const phoneTalita = '+559282358893';
+    const phonePriscila = '+559296127170';
+    const phone = person === 'Talita' ? phoneTalita : phonePriscila;
+    window.open(`https://wa.me/${phone}`, '_blank');
+  }
+  function irParaPagina(pagina) {
+  window.location.href = 'pagina' + pagina + '.html';
+}
 
 // Ao carregar a página, verifica se tem hash (ex: #page2)
 window.addEventListener('load', () => {
@@ -570,6 +573,9 @@ window.addEventListener('popstate', function (event) {
   const page = (event.state && event.state.page) || '1';
   goToPage(page, false);
 });
+
+
 </script>
 </body>
 </html>
+
