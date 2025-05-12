@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="android-chrome-512x512.png" type="image/x-icon">
   <title>INSCRIÇÃO EGD 2026</title>
   <style>
     /* Estilo Global */
@@ -147,7 +147,56 @@
         font-family: Verdrgba(0, 0, 0, 0.555)va, Tahoma, sans-serif;
         font-size: 15px;
     }
-    
+    .video-container {
+  position: relative;
+  width: 100%;  /* Ou um valor fixo, como 80%, dependendo do seu layout */
+  padding-top: 56.25%; /* Isso cria uma proporção de 16:9 (9/16 = 0.5625 = 56.25%) */
+  background-color: rgba(0, 0, 0, 0);  /* Fica visível caso o vídeo não tenha fundo */
+}
+.video-container video {
+  transition: transform 0.3s ease;
+  border: 3px solid #0059ffda;
+  box-shadow: 0 0 10px #0059ffda, 0 0 50px #0059ffda;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garantir que o vídeo ocupe o espaço todo sem distorcer */
+}
+.video-container:hover video {
+  transform: scale(1.05); /* ou 1.1 para mais zoom */
+}
+.video-containers {
+
+  display: flex; /* Organiza os vídeos lado a lado */
+  justify-content: space-between; /* Espaço entre os vídeos */
+  gap: 20px; /* Espaço entre os vídeos */
+}
+.video-item {
+
+  border: 3px solid #0059ffda;
+  box-shadow: 0 0 10px #0059ffda, 0 0 50px #0059ffda;
+  border-radius: 20px;
+  position: relative;
+  width: 30%; /* Define a largura de cada vídeo como 30% */
+  padding-top: 30%; /* Isso faz com que a altura seja igual à largura, criando um quadrado */
+  background-color: rgba(0, 0, 0, 0); /* Fallback caso o vídeo não carregue */
+}
+.video-item video {
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz o vídeo preencher todo o quadrado sem distorcer */
+  transition: transform 0.3s ease; /* Suaviza o zoom */
+}
+.video-item:hover video {
+  transform: scale(1.05); /* Zoom de 5% ao passar o mouse */
+}
 .meu-link {
   text-decoration: none; /* Tira o sublinhado */
   color: #ffffff; /* Muda a cor do texto (azul, por exemplo) */
@@ -250,7 +299,7 @@ a img:hover {
 
 footer {
   backdrop-filter: blur(15px);
-      background: rgba(0, 0, 0, 0.5);
+  background: rgba(83, 47, 47, 0.5);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -283,10 +332,21 @@ footer {
     }
 
     .botao-grande {
+  text-align: center;
   font-size: 25px;
   padding: 20px 30px;
 }
 
+.highlight-box4 {
+  border: 1px solid #082d55;
+  text-align: center;
+        border-radius: 10px;
+        padding: 1px;
+        margin-top: 10px;
+        background-color:#00000059;
+        font-family: Verdrgba(0, 0, 0, 0.555)va, Tahoma, sans-serif;
+        font-size: 15px;
+}
 
 
     @media (min-width: 768px) {
@@ -303,7 +363,10 @@ footer {
 <div class="page active" id="page1">
   <div class="glass-container">
     <img src="site tpo.png" alt="Imagem EGD">
-    <p><H1>SEJA BEM-VINDO AO SITE DE INSCRIÇÃO EGD 2026.</H1> <br> <h2>INSCREVA-SE CLICANDO NO BOTÃO ABAIXO:</h2></p>
+    <p><H1>SEJA BEM-VINDO AO SITE DE INSCRIÇÃO EGD 2026.</H1> <br> <hr><br> 
+      <div class="highlight-box4">
+        <br><h2>INSCREVA-SE CLICANDO NO BOTÃO ABAIXO:</h2><br>
+      </div></p>
     <button class="botao-grande" onclick="goToPage(2)">ACESSAR ÁREA DE INSCRIÇÃO</button> <br>
   </div>
 </div>
@@ -325,7 +388,7 @@ footer {
     <div class="video-container">
       
       <video
-      autoplay muted>
+      autoplay playsinline loop controls preload="auto">
         <source src="SnapInsta.mp4" type="video/mp4">
         Seu navegador não suporta vídeos.
       </video>
@@ -334,19 +397,19 @@ footer {
       <br>
       <div class="video-containers">
         <div class="video-item">
-          <video controls autoplay muted >
+          <video controls autoplay muted loop playsinline preload="auto">
             <source src="EGD3.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
           </video>
         </div>
         <div class="video-item">
-          <video controls autoplay muted loop>
+          <video controls autoplay  muted loop preload="auto">
             <source src="EGD.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
           </video>
         </div>
         <div class="video-item">
-          <video controls autoplay muted>
+          <video controls autoplay muted loop preload="auto">
             <source src="EGD2.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
           </video>
@@ -354,7 +417,7 @@ footer {
        </div>
        <br>
        <div class="video-container">
-        <video autoplay controls muted>
+        <video autoplay muted playsinline loop controls preload="auto">
           <source src="WhatsApp Video 2025-03-09 at 12.02.22.mp4" type="video/mp4">
           Seu navegador não suporta vídeos.
         </video>
