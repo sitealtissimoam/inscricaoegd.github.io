@@ -49,17 +49,17 @@
     }
 
     .blur-box {
-      justify-content: center;
-      flex-direction: column;
-      backdrop-filter: blur(15px);
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 20px;
-      border-radius: 10px;
       text-align: center;
-      width: 90%;
-      max-width: 500px;
-      color: #ffffff;
+      color: white;
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
       overflow: auto;
+      width: 100%;
+      max-width: 500px;
    }
 
     img {
@@ -158,7 +158,7 @@
 .video-container video {
   transition: transform 0.3s ease;
   border: 3px solid #0059ffda;
-  box-shadow: 0 0 10px #0059ffda, 0 0 50px #0059ffda;
+  box-shadow: 0 0 10px #0059ff4d, 0 0 50px #0059ff4d;
   border-radius: 20px;
   position: absolute;
   top: 0;
@@ -351,6 +351,30 @@ footer {
 }
 
 
+.video-preview {
+  border-radius: 15px;
+  width: 95%;
+  max-width: 800px;
+  aspect-ratio: 7 / 9; /* Retângulo horizontal */
+  background-color: rgba(0, 0, 0, 0); /* Bordas laterais */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.video-preview video {
+  border: 4px solid #082d55;
+  border-radius: 15px;
+  height: 95%;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.507);
+}
+
     @media (min-width: 768px) {
       .glass-container {
         max-width: 600px;
@@ -364,81 +388,100 @@ footer {
 <!-- Página 1 -->
 <div class="page active" id="page1">
   <div class="glass-container">
-    <img src="site tpo.png" alt="Imagem EGD">
-    <p><H1>SEJA BEM-VINDO AO SITE DE INSCRIÇÃO EGD 2026.</H1> <br> <hr><br> 
+    <div class="highlight-box4">
+      <img src="site tpo.png" alt="Imagem EGD">
+      <p><h1>SEJA BEM-VINDO AO SITE DE INSCRIÇÃO EGD 2026.</h1>
+    </div> 
+    <br>
       <div class="highlight-box4">
         <br><h2>INSCREVA-SE CLICANDO NO BOTÃO ABAIXO:</h2><br>
-      </div></p>
-    <button class="botao-grande" onclick="goToPage(2)">ACESSAR ÁREA DE INSCRIÇÃO</button> <br>
+    <button class="botao-grande" onclick="goToPage(2)">ACESSAR ÁREA DE INSCRIÇÃO</button> <br>  
+    </div>
   </div>
 </div>
 
 <!-- Página 2 -->
 <div class="page" id="page2">
   <form id="inscricaoForm" class="glass-container">
-    <img src="site tpo.png" alt="Imagem Inscrição">
-    <h1>INSCRIÇÃO EGD 2026</h1>
-    <h5>INSCRIÇÃO ENCONTRO IGREJA DO ALTÍSSIMO</h5>
+    <div class="highlight-box4">
+      <img src="site tpo.png" alt="Imagem Inscrição">
+      <h1>INSCRIÇÃO EGD 2026</h1>
+      <h5>INSCRIÇÃO ENCONTRO IGREJA DO ALTÍSSIMO</h5><br>
+    </div>
     <br>
     <hr>
     <br>
-    <div class="highlight-box2">
-        <h2>NÃO FOI PARA O EGD 2025?</h2>
-     <h5>OLHA SÓ O QUE VOCÊ PERDEU NO ENCONTRO PASSADO 👇</h5>
+    <div class="highlight-box4">
+      <br>
+        <p>
+          <h1>NÃO FOI PARA O EGD 2025</h1> <h4>OLHA SÓ O QUE VOCÊ PERDEU 👇</h4>
+        </p>
      <br>
-    </div> <br>
+     <br>
     <div class="video-container">
-      
       <video
-      autoplay playsinline loop controls preload="auto">
+      autoplay playsinline loop muted controls preload="auto">
         <source src="SnapInsta.mp4" type="video/mp4">
         Seu navegador não suporta vídeos.
       </video>
-      
       </div>
       <br>
       <div class="video-containers">
         <div class="video-item">
           <video controls autoplay muted loop playsinline preload="auto">
-            <source src="" type="video/mp4">
+            <source src="EGD3.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
           </video>
         </div>
         <div class="video-item">
           <video controls autoplay  muted loop preload="auto">
-            <source src="" type="video/mp4">
+            <source src="EGD2.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
           </video>
         </div>
         <div class="video-item">
           <video controls autoplay muted loop preload="auto">
-            <source src="" type="video/mp4">
+            <source src="EGD.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
           </video>
         </div>
        </div>
        <br>
+       <div class="video-container">
+        <video autoplay muted playsinline loop controls preload="auto">
+          <source src="jovens.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos.
+        </video>
+        </div><br>
+        </div>
       <br>
-      <div class="highlight-box6">
+      <div class="highlight-box4">
         <br>
-      <h2>E AÍ, VOCÊ FOI? </h2> <h4>FOI INCRÍVEL, NÉ?</h4>
+      <h2>E AÍ, VOCÊ FOI? </h2> <h4>INCRÍVEL, NÉ?</h4>
       <br>
       </div>
       <br>
       <br>
       <hr>
       <BR></BR>
-    <div class="highlight-box5">
+    <div class="highlight-box4">
       <br>
     <h2>E AÍ, TOPA FAZER PARTE TAMBÉM?</h2> <h4>COMECE AGORA MESMO A SUA INSCRIÇÃO</h4>
     <br>
-    </div>
       <input type="text" id="nome" placeholder="Nome Completo" required>
       <input type="tel" id="telefone" placeholder="Número de Telefone" required>
       <input type="email" id="email" placeholder="E-mail" required>
       <input type="number" id="idade" placeholder="Sua Idade" required>
       <input type="text" id="responsavel" placeholder="Nome e Número de um Responsável" required>
-      <input type="text" id="congregacao" placeholder="Faz Parte de Alguma Congregação?" required>
+    <select id="congregacao" required>
+      <option value="">Selecione uma Congregação</option>
+      <option value="Congregação da Sede">Congregação da Sede</option>
+      <option value="Congregação do Armando Mendes">Congregação do Armando Mendes</option>
+      <option value="Congregação do Alfredo Nascimento">Congregação do Alfredo Nascimento</option>
+      <option value="Congregação da Cidade de Deus">Congregação da Cidade de Deus</option>
+      <option value="Congregação do Valparaíso">Congregação do Valparaíso</option>
+      <option value="Outros - Interior">Outros - Interior</option>
+    </select>
       <input type="text" id="ga" placeholder="Faz Parte de Algum GA?" required>
       <input type="text" id="medicamentos" placeholder="Faz Uso de Medicamentos?" required>
       <textarea id="restricoes" placeholder="Tem Alguma Restrição Alimentar, Necessidades Especiais ou Alguma Limitação Física?" required rows="2" style="width: 100%; resize: vertical;"></textarea>
@@ -450,6 +493,7 @@ footer {
       <option value="Transporte Individual">Transporte Individual</option>
       <option value="Ida Individual / Volta Ônibus">Farei de forma individual, mas voltarei no ônibus</option>
     </select>
+    </div>
     
     <div class="highlight-box">
         <p><br>
@@ -460,7 +504,7 @@ footer {
 <div class="consent-wrapper">
   <label class="consent-container">
     <input type="checkbox" id="consent" required>
-    Estou ciente de que preciso <a href="https://w.app/hc9ldx" target="_blank">pagar o ingresso de R$270</a>
+    Estou ciente de que preciso <a href="https://contate.me/5592982358893" target="_blank">pagar o ingresso de R$270</a>
   </label>
 </div>
     <br>
@@ -470,87 +514,41 @@ footer {
     </div>
 
     <button type="submit">ENVIAR MINHA INSCRIÇÃO</button>
-    <button onclick="goToPage(4)">ACESSAR ÁREA DE PAGAMENTO</button>
  </form>
+ <br>
+ <br>
     </div>
 </div>
-
-
-<!-- Página 4 -->
-<div class="page" id="page4">
-  <div class="blur-box">
-       <div class="highlight-box2"> <br>
-         <h1>ÁREA DE PAGAMENTO</h1>
-        <h5>REALIZE AQUI O PAGAMENTO DO SEU INGRESSO</h5> <br>
-       </div>
-          <div class="form-warning">
-            AVISO: O pagamento só pode ser feito via PIX, visando à segurança da transferência.
-            Recomenda-se conferir o destinatário da transferência antes de concluir o pagamento.
-          </div>
-  <br>
-             <div class="imgpix">
-               <a href="https://www.exemplo.com" target="_blank">
-               <img src="pix site.png" alt="Descrição da imagem" class="imagem">
-               </a>
-             </div>
-            <div class="highlight-box"><br>
-              <p><b>PIX: tesouraria.ipeaam@gmail.com</b></p><br>
-            </div>
-          <div class="whatsapp-buttons">
-            <button onclick="sendWhatsApp('Talita')">Enviar Comprovante para Talita</button>
-            <button onclick="sendWhatsApp('Priscila')">Enviar Comprovante para Priscila</button>
-          </div>
-          <button onclick="goToPage(2)"> CONTINUAR INSCRIÇÃO / <br> VOLTAR PARA PÁGINA DE INSCRIÇÃO</button>
-  </div>
-   </div>
-
-<!-- Página 5 -->
-<div class="page" id="page5">
-  <div class="glass-container">
-    <div class="navegacao-1">
-      <button onclick="goToPage(1)">Página 1</button>
-      <button onclick="goToPage(2)">Página 2</button>
-      <button onclick="goToPage(3)">Página 3</button>
-      <button onclick="goToPage(4)">Página 4</button>
-    </div>
-    
-  </div>
-</div>
-
 
 <!-- Página 3 -->
 <div class="page" id="page3">
   <div class="glass-container">
+    <div class="highlight-box4">
     <img src="site tpo.png" alt="Imagem Final">
-    <h1 id="mensagemFinal">SUA INSCRIÇÃO FOI REALIZADA COM SUCESSO</h1> <br>
+    <h1 id="mensagemFinal"><h1>SUA INSCRIÇÃO FOI REALIZADA COM SUCESSO</h1> <br></div> </h1> <br>
     <hr>
-    <br>
     <h2 id="textoAgradecimento"></h2>
     <br>
-    <div class="highlight-box2"> <br>
-      <h2>AGORA TIRE UM PRINT E MARQUE <br> A GENTE NAS REDES SOCIAIS:</h2>
-        <br>
-          <a href="https://www.instagram.com/igrejadoaltissimo.am?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="meu-link">
-              @igrejadoaltissimo.am
-            </a>
-          <a href="https://www.instagram.com/jovensconvictos.am?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="meu-link">
-          @jovensconvctos.am
-        </a> <br> <br>
-    </div>
-    <br>
-    <br>
+    <div class="highlight-box4"> <br>
+  <div class="video-preview">
+  <video controls loop >
+    <source src="caminhando.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo HTML5.
+  </video>
+</div>
+<a href="https://www.instagram.com/igrejadoaltissimo.am?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="meu-link">
+                  @igrejadoaltissimo.am
+                </a>
+              <a href="https://www.instagram.com/jovensconvictos.am?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="meu-link">
+              @jovensconvctos.ambr <br>
+                      <br></a>
+</div>
+              
+  
     <button onclick="goToPage(1)"> VOLTAR PARA PÁGINA INICIAL</button>
     <button onclick="goToPage(2)"> REALIZAR NOVA INSCRIÇÃO</button>
     <br>
     <br>
-    <div class="highlight-box3">
-      <br> <p>Recadinho do <a href="https://www.instagram.com/pr.danielnunessena?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="meu-link"> Nosso Pastor Daniel</a> especialmente para você...</p>
-       <br>
-    <div class="audio">
-    </div>
-    <br>
-    <br>
-  </div>
 </div>
 
 <!-- EmailJS -->
@@ -630,6 +628,33 @@ window.addEventListener('popstate', function (event) {
   const page = (event.state && event.state.page) || '1';
   goToPage(page, false);
 });
+
+      const acessoAdmin_SENHA = "159330102"; // Troque pela senha que desejar
+    
+      function acessoAdmin_abrirSenha() {
+        document.getElementById('acessoAdmin_senhaBox').style.display = 'block';
+        document.getElementById('acessoAdmin_senhaInput').focus();
+      }
+    
+      function acessoAdmin_verificar() {
+        const senhaDigitada = document.getElementById('acessoAdmin_senhaInput').value;
+        const erroMsg = document.getElementById('acessoAdmin_erro');
+        const botaoAcesso = document.getElementById('acessoAdmin_botaoLiberado');
+    
+        if (senhaDigitada === acessoAdmin_SENHA) {
+          erroMsg.style.display = 'none';
+          botaoAcesso.style.display = 'block';
+        } else {
+          erroMsg.style.display = 'block';
+          botaoAcesso.style.display = 'none';
+        }
+      }
+    
+      function acessoAdmin_verificaEnter(event) {
+        if (event.key === "Enter") {
+          acessoAdmin_verificar();
+        }
+      }
 
 
 </script>
