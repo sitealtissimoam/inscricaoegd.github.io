@@ -22,31 +22,52 @@
       overflow-x: hidden;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
+    
     .page {
-      display: none;
-      height: 100vh;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-    }
-    .active {
-      display: flex;
-    }
-    .glass-container {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      padding: 20px;
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-      color: white;
-      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-      overflow: auto;
-    }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.page.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.glass-container {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  overflow: auto;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.page.active .glass-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
     .blur-box {
       background: rgba(0, 0, 0, 0.2);
@@ -60,6 +81,14 @@
       overflow: auto;
       width: 100%;
       max-width: 500px;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      opacity: 0;
+      transform: translateY(30px);
+   }
+
+   .page.active .blur-box {
+  opacity: 1;
+  transform: translateY(0);
    }
 
     img {
@@ -253,6 +282,7 @@ text-align: center;
 padding: 10px;
 }
 .form-warning {
+            border: solid 2px rgb(255, 0, 0);
             margin-top: 20px;
             font-size: 14px;
             background: rgba(255, 0, 0, 0.411);
@@ -406,7 +436,7 @@ footer {
     <div class="highlight-box4">
       <img src="site tpo.png" alt="Imagem Inscrição">
       <h1>INSCRIÇÃO EGD 2026</h1>
-      <h5>INSCRIÇÃO ENCONTRO IGREJA DO ALTÍSSIMO</h5><br>
+      <h5>INSCRIÇÃO ENCONTRO IGREJA DO ALTÍSSIMO AM</h5><br>
     </div>
     <br>
     <hr>
@@ -468,27 +498,42 @@ footer {
       <br>
     <h2>E AÍ, TOPA FAZER PARTE TAMBÉM?</h2> <h4>COMECE AGORA MESMO A SUA INSCRIÇÃO</h4>
     <br>
-      <input type="text" id="nome" placeholder="Nome Completo" required>
+      <input type="text" id="nome" placeholder="Nome e Sobrenome" required>
       <input type="tel" id="telefone" placeholder="Número de Telefone" required>
       <input type="email" id="email" placeholder="E-mail" required>
       <input type="number" id="idade" placeholder="Sua Idade" required>
       <input type="text" id="responsavel" placeholder="Nome e Número de um Responsável" required>
+
     <select id="congregacao" required>
-      <option value="">Selecione uma Congregação</option>
+      <option value="">Faz parte de alguma congregação? (selecione uma opção) </option>
       <option value="Congregação da Sede">Congregação da Sede</option>
       <option value="Congregação do Armando Mendes">Congregação do Armando Mendes</option>
       <option value="Congregação do Alfredo Nascimento">Congregação do Alfredo Nascimento</option>
       <option value="Congregação da Cidade de Deus">Congregação da Cidade de Deus</option>
       <option value="Congregação do Valparaíso">Congregação do Valparaíso</option>
       <option value="Outros - Interior">Outros - Interior</option>
+      <option value="ainda">Ainda não faço parte de uma</option>
+     </select>
+
     </select>
-      <input type="text" id="ga" placeholder="Faz Parte de Algum GA?" required>
+      <select id="ga" required>
+      <option value="">Faz Parte de Algum GA? (selecione uma opção)</option>
+      <option value="nao">Sim</option>
+      <option value="sim">Não</option>
+    </select>
+
       <input type="text" id="medicamentos" placeholder="Faz Uso de Medicamentos?" required>
       <textarea id="restricoes" placeholder="Tem Alguma Restrição Alimentar, Necessidades Especiais ou Alguma Limitação Física?" required rows="2" style="width: 100%; resize: vertical;"></textarea>
-      <input type="text" id="egdAntes" placeholder="Já Participou de Algum EGD?" required>
+      
+      <select id="egdAntes" required>
+      <option value="">Já foi participou de algum EGD? (selecione uma opção) </option>
+      <option value="Todos">Participei de todos</option>
+      <option value="Alguns">Já participei de alguns</option>
+      <option value="nunca">Irei pela primeira vez</option>
+    </select>
     
     <select id="transporte" required>
-      <option value="">Selecione seu meio de transporte</option>
+      <option value="">Selecione seu meio de transporte (selecione uma opção) </option>
       <option value="Ônibus EGD">Ônibus EGD</option>
       <option value="Transporte Individual">Transporte Individual</option>
       <option value="Ida Individual / Volta Ônibus">Farei de forma individual, mas voltarei no ônibus</option>
@@ -503,7 +548,7 @@ footer {
 <br>
 <div class="consent-wrapper">
   <label class="consent-container">
-    <input type="checkbox" id="consent" required>
+    <input type="checkbox" placeholder="termo" id="consent" required>
     Estou ciente de que preciso <a href="https://contate.me/5592982358893" target="_blank">pagar o ingresso de R$270</a>
   </label>
 </div>
@@ -512,26 +557,63 @@ footer {
     <p> <br>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados não seram usados para outros para outros fins. <br>
       <br></p>
     </div>
-
     <button type="submit">ENVIAR MINHA INSCRIÇÃO</button>
+    <button onclick="goToPage(4)">ACESSAR ÁREA DE PAGAMENTO</button>
  </form>
  <br>
  <br>
     </div>
 </div>
 
+<!-- Página 4 -->
+<div class="page" id="page4">
+  <div class="blur-box">
+       <div class="highlight-box2"> <br>
+         <h1>ÁREA DE PAGAMENTO</h1>
+        <h5>REALIZE AQUI O PAGAMENTO DO SEU INGRESSO</h5> <br>
+       </div>
+          <div class="form-warning">
+            AVISO: O pagamento só pode ser feito via PIX, visando à segurança da transferência.
+            Recomenda-se conferir o destinatário da transferência antes de concluir o pagamento. <br>
+            <br><p>Basta escanear o QR code abaixo</p>
+          </div>
+  <br>
+             <div class="imgpix">
+               <a href="https://www.exemplo.com" target="_blank">
+               <img src="pix site.png" alt="Descrição da imagem" class="imagem">
+               </a>
+             </div>
+            <div class="highlight-box"><br>
+              <p><b>PIX: tesouraria.ipeaam@gmail.com</b><br>
+                <br>
+                <hr>
+                <br>
+              Você também pode pagar diretamente na igreja, basta comunicar a um dos números abaixo.
+              </p><br>
+
+            </div>
+          <div class="whatsapp-buttons">
+            <button onclick="sendWhatsApp('Talita')">Enviar Comprovante para Talita</button>
+            <button onclick="sendWhatsApp('Priscila')">Enviar Comprovante para Priscila</button>
+          </div>
+          <button onclick="goToPage(2)"> CONTINUAR INSCRIÇÃO / <br> VOLTAR PARA PÁGINA DE INSCRIÇÃO</button>
+  </div>
+   </div>
+
+
+
 <!-- Página 3 -->
 <div class="page" id="page3">
   <div class="glass-container">
     <div class="highlight-box4">
     <img src="site tpo.png" alt="Imagem Final">
-    <h1 id="mensagemFinal"><h1>SUA INSCRIÇÃO FOI REALIZADA COM SUCESSO</h1> <br></div> </h1> <br>
+    <h1 id="mensagemFinal"><h1>SUA INSCRIÇÃO FOI REALIZADA COM SUCESSO</h1> <br> </h1> <br>
     <hr>
-    <h2 id="textoAgradecimento"></h2>
-    <br>
+    <h2 id="textoAgradecimento"></h2><br>
+    </div>
     <div class="highlight-box4"> <br>
   <div class="video-preview">
-  <video controls loop >
+  <video controls muted loop >
     <source src="caminhando.mp4" type="video/mp4">
     Seu navegador não suporta vídeo HTML5.
   </video>
@@ -540,7 +622,7 @@ footer {
                   @igrejadoaltissimo.am
                 </a>
               <a href="https://www.instagram.com/jovensconvictos.am?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="meu-link">
-              @jovensconvctos.ambr <br>
+              @jovensconvictos.am <br>
                       <br></a>
 </div>
               
@@ -629,32 +711,18 @@ window.addEventListener('popstate', function (event) {
   goToPage(page, false);
 });
 
-      const acessoAdmin_SENHA = "159330102"; // Troque pela senha que desejar
-    
-      function acessoAdmin_abrirSenha() {
-        document.getElementById('acessoAdmin_senhaBox').style.display = 'block';
-        document.getElementById('acessoAdmin_senhaInput').focus();
+
+  function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+      if (page.id === pageId) {
+        page.classList.add('active');
+      } else {
+        page.classList.remove('active');
       }
-    
-      function acessoAdmin_verificar() {
-        const senhaDigitada = document.getElementById('acessoAdmin_senhaInput').value;
-        const erroMsg = document.getElementById('acessoAdmin_erro');
-        const botaoAcesso = document.getElementById('acessoAdmin_botaoLiberado');
-    
-        if (senhaDigitada === acessoAdmin_SENHA) {
-          erroMsg.style.display = 'none';
-          botaoAcesso.style.display = 'block';
-        } else {
-          erroMsg.style.display = 'block';
-          botaoAcesso.style.display = 'none';
-        }
-      }
-    
-      function acessoAdmin_verificaEnter(event) {
-        if (event.key === "Enter") {
-          acessoAdmin_verificar();
-        }
-      }
+    });
+  }
+
 
 
 </script>
