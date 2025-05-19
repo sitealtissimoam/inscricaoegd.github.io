@@ -46,6 +46,29 @@
   z-index: 1;
 }
 
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.page.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
 .glass-container {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
@@ -338,7 +361,7 @@ footer {
   width: 100%;
   color: white;
   text-align: center;
-  padding: 10px 0;
+  padding: 5px 0;
   z-index: 9999; /* para aparecer acima das páginas */
 }
 
@@ -432,143 +455,150 @@ footer {
 
 <!-- Página 2 -->
 <div class="page" id="page2">
-  <form id="inscricaoForm" class="glass-container">
-    <div class="highlight-box4">
-      <img src="site tpo.png" alt="Imagem Inscrição">
-      <h1>INSCRIÇÃO EGD 2026</h1>
-      <h5>INSCRIÇÃO ENCONTRO IGREJA DO ALTÍSSIMO AM</h5><br>
-    </div>
-    <br>
-    <hr>
-    <br>
-    <div class="highlight-box4">
-      <br>
-        <p>
-          <h1>NÃO FOI PARA O EGD 2025</h1> <h4>OLHA SÓ O QUE VOCÊ PERDEU 👇</h4>
-        </p>
-     <br>
-     <br>
-    <div class="video-container">
-      <video
-      autoplay playsinline loop muted controls preload="auto">
-        <source src="SnapInsta.mp4" type="video/mp4">
-        Seu navegador não suporta vídeos.
-      </video>
+  <div class="glass-container">
+    <!-- Formulário com iframe oculto para envio sem redirecionamento -->
+    <form id="inscricaoForm" action="https://formsubmit.co/igrejadoaltissimoamazonassite@gmail.com" method="POST" target="hiddenFrame" onsubmit="return validarEEnviar()">
+      <!-- Campos ocultos do FormSubmit -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      
+      <div class="highlight-box4">
+        <img src="site tpo.png" alt="Imagem Inscrição">
+        <h1>INSCRIÇÃO EGD 2026</h1>
+        <h5>INSCRIÇÃO ENCONTRO IGREJA DO ALTÍSSIMO AM</h5><br>
       </div>
       <br>
-      <div class="video-containers">
-        <div class="video-item">
-          <video controls autoplay muted loop playsinline preload="auto">
-            <source src="EGD3.mp4" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
-          </video>
-        </div>
-        <div class="video-item">
-          <video controls autoplay  muted loop preload="auto">
-            <source src="EGD2.mp4" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
-          </video>
-        </div>
-        <div class="video-item">
-          <video controls autoplay muted loop preload="auto">
-            <source src="EGD.mp4" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
-          </video>
-        </div>
-       </div>
-       <br>
-       <div class="video-container">
-        <video autoplay muted playsinline loop controls preload="auto">
-          <source src="jovens.mp4" type="video/mp4">
-          Seu navegador não suporta vídeos.
-        </video>
-        </div><br>
-        </div>
+      <hr>
       <br>
       <div class="highlight-box4">
         <br>
-      <h2>E AÍ, VOCÊ FOI? </h2> <h4>INCRÍVEL, NÉ?</h4>
+          <p>
+            <h1>NÃO FOI PARA O EGD 2025</h1> <h4>OLHA SÓ O QUE VOCÊ PERDEU 👇</h4>
+          </p>
+       <br>
+       <br>
+      <div class="video-container">
+        <video
+        autoplay loop muted playsinline controls preload="auto">
+          <source src="SnapInsta.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos.
+        </video>
+        </div>
+        <br>
+        <div class="video-containers">
+          <div class="video-item">
+            <video controls autoplay muted loop playsinline preload="auto">
+              <source src="EGD3.mp4" type="video/mp4">
+              Seu navegador não suporta a tag de vídeo.
+            </video>
+          </div>
+          <div class="video-item">
+            <video controls autoplay  muted loop preload="auto">
+              <source src="EGD2.mp4" type="video/mp4">
+              Seu navegador não suporta a tag de vídeo.
+            </video>
+          </div>
+          <div class="video-item">
+            <video controls autoplay muted loop playsinline preload="auto">
+              <source src="EGD.mp4" type="video/mp4">
+              Seu navegador não suporta a tag de vídeo.
+            </video>
+          </div>
+         </div>
+         <br>
+         <div class="video-container">
+          <video autoplay muted playsinline loop controls preload="auto">
+            <source src="jovens.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+          </video>
+          </div><br>
+          </div>
+        <br>
+        <div class="highlight-box4">
+          <br>
+        <h2>E AÍ, VOCÊ FOI? </h2> <h4>INCRÍVEL, NÉ?</h4>
+        <br>
+        </div>
+        <br>
+        <br>
+        <hr>
+        <BR></BR>
+      <div class="highlight-box4">
+        <br>
+      <h2>E AÍ, TOPA FAZER PARTE TAMBÉM?</h2> <h4>COMECE AGORA MESMO A SUA INSCRIÇÃO</h4>
       <br>
-      </div>
-      <br>
-      <br>
-      <hr>
-      <BR></BR>
-    <div class="highlight-box4">
-      <br>
-    <h2>E AÍ, TOPA FAZER PARTE TAMBÉM?</h2> <h4>COMECE AGORA MESMO A SUA INSCRIÇÃO</h4>
-    <br>
-      <input type="text" id="nome" placeholder="Nome e Sobrenome" required>
-      <input type="tel" id="telefone" placeholder="Número de Telefone" required>
-      <input type="email" id="email" placeholder="E-mail" required>
-      <input type="number" id="idade" placeholder="Sua Idade" required>
-      <input type="text" id="responsavel" placeholder="Nome e Número de um Responsável" required>
+        <input type="text" name="nome" id="nome" placeholder="Nome e Sobrenome" required>
+        <input type="tel" name="telefone" id="telefone" placeholder="Número de Telefone" required>
+        <input type="email" name="email" id="email" placeholder="E-mail" required>
+        <input type="number" name="idade" id="idade" placeholder="Sua Idade" required>
+        <input type="text" name="responsavel" id="responsavel" placeholder="Nome e Número de um Responsável" required>
 
-    <select id="congregacao" required>
-      <option value="">Faz parte de alguma congregação? (selecione uma opção) </option>
-      <option value="Congregação da Sede">Congregação da Sede</option>
-      <option value="Congregação do Armando Mendes">Congregação do Armando Mendes</option>
-      <option value="Congregação do Alfredo Nascimento">Congregação do Alfredo Nascimento</option>
-      <option value="Congregação da Cidade de Deus">Congregação da Cidade de Deus</option>
-      <option value="Congregação do Valparaíso">Congregação do Valparaíso</option>
-      <option value="Outros - Interior">Outros - Interior</option>
-      <option value="ainda">Ainda não faço parte de uma</option>
-     </select>
+      <select name="congregacao" id="congregacao" required>
+        <option value="">Faz parte de alguma congregação? (selecione uma opção) </option>
+        <option value="Congregação da Sede">Congregação da Sede</option>
+        <option value="Congregação do Armando Mendes">Congregação do Armando Mendes</option>
+        <option value="Congregação do Alfredo Nascimento">Congregação do Alfredo Nascimento</option>
+        <option value="Congregação da Cidade de Deus">Congregação da Cidade de Deus</option>
+        <option value="Congregação do Valparaíso">Congregação do Valparaíso</option>
+        <option value="Outros - Interior">Outros - Interior</option>
+        <option value="ainda">Ainda não faço parte de uma</option>
+       </select>
 
-    </select>
-      <select id="ga" required>
-      <option value="">Faz Parte de Algum GA? (selecione uma opção)</option>
-      <option value="nao">Sim</option>
-      <option value="sim">Não</option>
-    </select>
+        <select name="ga" id="ga" required>
+        <option value="">Faz Parte de Algum GA? (selecione uma opção)</option>
+        <option value="nao">Sim</option>
+        <option value="sim">Não</option>
+      </select>
 
-      <input type="text" id="medicamentos" placeholder="Faz Uso de Medicamentos?" required>
-      <textarea id="restricoes" placeholder="Tem Alguma Restrição Alimentar, Necessidades Especiais ou Alguma Limitação Física?" required rows="2" style="width: 100%; resize: vertical;"></textarea>
+        <input type="text" name="medicamentos" id="medicamentos" placeholder="Faz Uso de Medicamentos?" required>
+        <textarea name="restricoes" id="restricoes" placeholder="Tem Alguma Restrição Alimentar, Necessidades Especiais ou Alguma Limitação Física?" required rows="2" style="width: 100%; resize: vertical;"></textarea>
+        
+        <select name="egdAntes" id="egdAntes" required>
+        <option value="">Já foi participou de algum EGD? (selecione uma opção) </option>
+        <option value="Todos">Participei de todos</option>
+        <option value="Alguns">Já participei de alguns</option>
+        <option value="nunca">Irei pela primeira vez</option>
+      </select>
       
-      <select id="egdAntes" required>
-      <option value="">Já foi participou de algum EGD? (selecione uma opção) </option>
-      <option value="Todos">Participei de todos</option>
-      <option value="Alguns">Já participei de alguns</option>
-      <option value="nunca">Irei pela primeira vez</option>
-    </select>
+      <select name="transporte" id="transporte" required>
+        <option value="">Selecione seu meio de transporte (selecione uma opção) </option>
+        <option value="Ônibus EGD">Ônibus EGD</option>
+        <option value="Transporte Individual">Transporte Individual</option>
+        <option value="Ida Individual / Volta Ônibus">Farei de forma individual, mas voltarei no ônibus</option>
+      </select>
+      </div>
+      
+      <div class="highlight-box">
+          <p><br>
+            O Local Disponibiliza o uso de colchonete no valor de R$10 durante os quatro dias do encontro. Fale com os responsáveis após a primeira palestra. <br>
+            <br><p>
+      </div>
+  <br>
+  <div class="consent-wrapper">
+    <label class="consent-container">
+      <input type="checkbox" name="consent" id="consent" required>
+      Estou ciente de que preciso <a href="https://contate.me/5592982358893" target="_blank">pagar o ingresso de R$270</a>
+    </label>
+  </div>
+      <br>
+      <div class="highlight-box">
+      <p> <br>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados não seram usados para outros para outros fins. <br>
+        <br></p>
+      </div>
+      <button type="submit">ENVIAR MINHA INSCRIÇÃO</button>
+    </form>
     
-    <select id="transporte" required>
-      <option value="">Selecione seu meio de transporte (selecione uma opção) </option>
-      <option value="Ônibus EGD">Ônibus EGD</option>
-      <option value="Transporte Individual">Transporte Individual</option>
-      <option value="Ida Individual / Volta Ônibus">Farei de forma individual, mas voltarei no ônibus</option>
-    </select>
-    </div>
-    
-    <div class="highlight-box">
-        <p><br>
-          O Local Disponibiliza o uso de colchonete no valor de R$10 durante os quatro dias do encontro. Fale com os responsáveis após a primeira palestra. <br>
-          <br><p>
-    </div>
-<br>
-<div class="consent-wrapper">
-  <label class="consent-container">
-    <input type="checkbox" placeholder="termo" id="consent" required>
-    Estou ciente de que preciso <a href="https://contate.me/5592982358893" target="_blank">pagar o ingresso de R$270</a>
-  </label>
-</div>
-    <br>
-    <div class="highlight-box">
-    <p> <br>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados não seram usados para outros para outros fins. <br>
-      <br></p>
-    </div>
-    <button type="submit">ENVIAR MINHA INSCRIÇÃO</button>
+    <!-- Botão de pagamento FORA do formulário -->
     <button onclick="goToPage(4)">ACESSAR ÁREA DE PAGAMENTO</button>
- </form>
- <br>
- <br>
-    </div>
+  </div>
+  <br>
+  <br>
 </div>
 
 <!-- Página 4 -->
 <div class="page" id="page4">
   <div class="blur-box">
-       <div class="highlight-box2"> <br>
+       <div form id="pagamento" class="blur-box"> <br>
          <h1>ÁREA DE PAGAMENTO</h1>
         <h5>REALIZE AQUI O PAGAMENTO DO SEU INGRESSO</h5> <br>
        </div>
@@ -598,18 +628,16 @@ footer {
           </div>
           <button onclick="goToPage(2)"> CONTINUAR INSCRIÇÃO / <br> VOLTAR PARA PÁGINA DE INSCRIÇÃO</button>
   </div>
-   </div>
-
-
+</div>
 
 <!-- Página 3 -->
 <div class="page" id="page3">
   <div class="glass-container">
     <div class="highlight-box4">
     <img src="site tpo.png" alt="Imagem Final">
-    <h1 id="mensagemFinal"><h1>SUA INSCRIÇÃO FOI REALIZADA COM SUCESSO</h1> <br> </h1> <br>
+    <h1>SUA INSCRIÇÃO FOI REALIZADA COM SUCESSO</h1> <br>
     <hr>
-    <h2 id="textoAgradecimento"></h2><br>
+    <h2 id="textoAgradecimento">Agora você está preparado(a) para viver o sobrenatural de Deus.</h2><br>
     </div>
     <div class="highlight-box4"> <br>
   <div class="video-preview">
@@ -632,59 +660,73 @@ footer {
     <br>
     <br>
 </div>
+</div>
 
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<!-- Página 5 (exemplo de página adicional) -->
+<div class="page" id="page5">
+  <div class="glass-container">
+    <div class="highlight-box4">
+      <img src="site tpo.png" alt="Imagem Página 5">
+      <h1>PÁGINA ADICIONAL 5</h1>
+      <p>Esta é uma página adicional de exemplo.</p>
+    </div>
+    <button onclick="goToPage(1)">VOLTAR PARA PÁGINA INICIAL</button>
+    <button onclick="goToPage(2)">IR PARA INSCRIÇÃO</button>
+  </div>
+</div>
+
+<!-- Página 6 (exemplo de página adicional) -->
+<div class="page" id="page6">
+  <div class="glass-container">
+    <div class="highlight-box4">
+      <img src="site tpo.png" alt="Imagem Página 6">
+      <h1>PÁGINA ADICIONAL 6</h1>
+      <p>Esta é outra página adicional de exemplo.</p>
+    </div>
+    <button onclick="goToPage(1)">VOLTAR PARA PÁGINA INICIAL</button>
+    <button onclick="goToPage(5)">IR PARA PÁGINA 5</button>
+  </div>
+</div>
+
+<!-- Iframe oculto para envio do formulário sem redirecionamento -->
+<iframe name="hiddenFrame" style="display:none;"></iframe>
+
 <script>
-  emailjs.init('bAdFx_yZma_XuIwtl');
-
   function goToPage(pageNumber, push = true) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page' + pageNumber).classList.add('active');
-
-  if (push) {
-    history.pushState({ page: pageNumber }, '', '#page' + pageNumber);
-  }
-}
-
-
-  document.getElementById('inscricaoForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-
-    if(!document.getElementById('consent').checked) {
-      alert('Você precisa aceitar o termo de consentimento.');
+    // Verifica se a página existe antes de tentar navegar para ela
+    const targetPage = document.getElementById('page' + pageNumber);
+    if (!targetPage) {
+      console.error('Página ' + pageNumber + ' não encontrada!');
       return;
     }
+    
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    targetPage.classList.add('active');
 
-    const formData = {
-      nome: document.getElementById('nome').value,
-      telefone: document.getElementById('telefone').value,
-      email: document.getElementById('email').value,
-      idade: document.getElementById('idade').value,
-      responsavel: document.getElementById('responsavel').value,
-      congregacao: document.getElementById('congregacao').value,
-      ga: document.getElementById('ga').value,
-      medicamentos: document.getElementById('medicamentos').value,
-      restricoes: document.getElementById('restricoes').value,
-      egdAntes: document.getElementById('egdAntes').value,
-      transporte: document.getElementById('transporte').value
-    };
+    if (push) {
+      history.pushState({ page: pageNumber }, '', '#page' + pageNumber);
+    }
+  }
 
-    emailjs.send('service_1vpmg3i', 'template_vf13zpf', formData)
-      .then(() => {
-        personalizeMessage(formData.nome);
-        goToPage(3);
-      }, (error) => {
-        alert('Erro ao enviar inscrição. Tente novamente.');
-        console.log(error);
-      });
-  });
-
-  function personalizeMessage(fullName) {
-    const firstName = fullName.split(' ')[0];
+  function validarEEnviar() {
+    // Verificar se o checkbox de consentimento está marcado
+    if(!document.getElementById('consent').checked) {
+      alert('Você precisa aceitar o termo de consentimento.');
+      return false;
+    }
+    
+    // Personalizar a mensagem de agradecimento
+    const nome = document.getElementById('nome').value;
+    const firstName = nome.split(' ')[0];
     const genderSuffix = (firstName.endsWith('a') || firstName.endsWith('e')) ? 'preparada' : 'preparado';
     document.getElementById('textoAgradecimento').innerHTML = `Aeee ${firstName}! Agora você está ${genderSuffix} para viver o sobrenatural de Deus.`;
+    
+    // Navegar para a página 3 imediatamente
+    setTimeout(function() {
+      goToPage(3);
+    }, 100);
+    
+    return true;
   }
 
   function sendWhatsApp(person) {
@@ -693,24 +735,32 @@ footer {
     const phone = person === 'Talita' ? phoneTalita : phonePriscila;
     window.open(`https://wa.me/${phone}`, '_blank');
   }
+  
   function irParaPagina(pagina) {
-  window.location.href = 'pagina' + pagina + '.html';
-}
+    window.location.href = 'pagina' + pagina + '.html';
+  }
 
-// Ao carregar a página, verifica se tem hash (ex: #page2)
-window.addEventListener('load', () => {
-  const hash = window.location.hash.replace('#page', '');
-  const page = hash || '1';
-  goToPage(page, false);
-  history.replaceState({ page }, '', '#page' + page);
-});
+  // Ao carregar a página, verifica se tem hash (ex: #page2)
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.replace('#page', '');
+    const page = hash || '1';
+    goToPage(page, false);
+    history.replaceState({ page }, '', '#page' + page);
+    
+    // Verifica se todas as páginas existem
+    const totalPages = 6; // Atualize este número conforme adicionar mais páginas
+    for (let i = 1; i <= totalPages; i++) {
+      if (!document.getElementById('page' + i)) {
+        console.warn('Aviso: Página ' + i + ' não encontrada no DOM!');
+      }
+    }
+  });
 
-// Quando o usuário clicar na seta de voltar/avançar
-window.addEventListener('popstate', function (event) {
-  const page = (event.state && event.state.page) || '1';
-  goToPage(page, false);
-});
-
+  // Quando o usuário clicar na seta de voltar/avançar
+  window.addEventListener('popstate', function (event) {
+    const page = (event.state && event.state.page) || '1';
+    goToPage(page, false);
+  });
 
   function showPage(pageId) {
     const pages = document.querySelectorAll('.page');
@@ -722,10 +772,6 @@ window.addEventListener('popstate', function (event) {
       }
     });
   }
-
-
-
 </script>
 </body>
 </html>
-
