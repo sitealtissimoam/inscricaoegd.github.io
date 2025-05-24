@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+c:\Users\ALTISSIMO 001\Downloads\Novo Projeto (1).png<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -6,16 +6,19 @@
   <link rel="shortcut icon" href="android-chrome-512x512.png" type="image/x-icon">
   <title>INSCRIÇÃO EGD 2026</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
     /* Estilo Global */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family:Arial, Helvetica, sans-serif
+      font-family: 'Montserrat', sans-serif;
     }
     body {
-      background-image: url('fundo\ site\ 2.png');
-      background-size: cover;
+      /* background-image: url(\'fundo\\ site\\ 2.png\'); */ /* Comentado para remover a imagem de fundo */
+      background: linear-gradient(-45deg, #0a0a1a, #1a0a1a, #0a1a0a, #1a1a0a);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       background-position: center;
       background-repeat: no-repeat;
       height: 100vh;
@@ -50,8 +53,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100vh;
+    width: 100%;
+    height: 100vh;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -396,7 +399,7 @@ footer {
   border: 1px solid #082d55;
   text-align: center;
         border-radius: 10px;
-        padding: 1px;
+        padding: 10px;
         margin-top: 10px;
         background-color:#00000059;
         font-family: Verdrgba(0, 0, 0, 0.555)va, Tahoma, sans-serif;
@@ -428,9 +431,47 @@ footer {
   background-color: rgba(0, 0, 0, 0.507);
 }
 
+.linha{
+ margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 23px;
+}
+
     @media (min-width: 768px) {
       .glass-container {
         max-width: 600px;
+      }
+    }
+
+    /* Estilos para a logo flutuante */
+    .floating-logo {
+      position: fixed;
+      width: 50px; /* Tamanho pequeno */
+      height: 50px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+      z-index: 1000; /* Garante que fique acima de outros elementos */
+      pointer-events: none; /* Para não interferir com cliques */
+      filter: drop-shadow(0 0 10px rgba(70, 70, 37, 0)); /* Efeito brilhante */
+      transform: scale(0.8); /* Começa um pouco menor */
+    }
+
+    .floating-logo.visible {
+      opacity: 0.7; /* Um pouco transparente para não ser muito intrusivo */
+      transform: scale(1); /* Tamanho normal ao aparecer */
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
       }
     }
   </style>
@@ -582,7 +623,7 @@ footer {
   </div>
       <br>
       <div class="highlight-box">
-      <p> <br>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados não seram usados para outros para outros fins. <br>
+      <p> <br>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados não seram usados para outros fins. <br>
         <br></p>
       </div>
       <button type="submit">ENVIAR MINHA INSCRIÇÃO</button>
@@ -593,41 +634,6 @@ footer {
   </div>
   <br>
   <br>
-</div>
-
-<!-- Página 4 -->
-<div class="page" id="page4">
-  <div class="blur-box">
-       <div form id="pagamento" class="blur-box"> <br>
-         <h1>ÁREA DE PAGAMENTO</h1>
-        <h5>REALIZE AQUI O PAGAMENTO DO SEU INGRESSO</h5> <br>
-       </div>
-          <div class="form-warning">
-            AVISO: O pagamento só pode ser feito via PIX, visando à segurança da transferência.
-            Recomenda-se conferir o destinatário da transferência antes de concluir o pagamento. <br>
-            <br><p>Basta escanear o QR code abaixo</p>
-          </div>
-  <br>
-             <div class="imgpix">
-               <a href="https://www.exemplo.com" target="_blank">
-               <img src="pix site.png" alt="Descrição da imagem" class="imagem">
-               </a>
-             </div>
-            <div class="highlight-box"><br>
-              <p><b>PIX: tesouraria.ipeaam@gmail.com</b><br>
-                <br>
-                <hr>
-                <br>
-              Você também pode pagar diretamente na igreja, basta comunicar a um dos números abaixo.
-              </p><br>
-
-            </div>
-          <div class="whatsapp-buttons">
-            <button onclick="sendWhatsApp('Talita')">Enviar Comprovante para Talita</button>
-            <button onclick="sendWhatsApp('Priscila')">Enviar Comprovante para Priscila</button>
-          </div>
-          <button onclick="goToPage(2)"> CONTINUAR INSCRIÇÃO / <br> VOLTAR PARA PÁGINA DE INSCRIÇÃO</button>
-  </div>
 </div>
 
 <!-- Página 3 -->
@@ -660,6 +666,43 @@ footer {
     <br>
     <br>
 </div>
+</div>
+
+<!-- Página 4 -->
+<div class="page" id="page4">
+  <div class="blur-box">
+       <div form id="pagamento" class="blur-box"> <br>
+         <h1>ÁREA DE PAGAMENTO</h1>
+        <h5>REALIZE AQUI O PAGAMENTO DO SEU INGRESSO</h5> <br>
+       </div>
+          <div class="form-warning">
+            AVISO: O pagamento só pode ser feito via PIX, visando à segurança da transferência.
+            Recomenda-se conferir o destinatário da transferência antes de concluir o pagamento. <br>
+            <br><p>Basta escanear o QR code abaixo</p>
+          </div>
+  <br>
+             <div class="imgpix">
+               <a href="https://www.exemplo.com" target="_blank">
+               <img src="pix site.png" alt="Descrição da imagem" class="imagem">
+               </a>
+             </div>
+            <div class="highlight-box"><br>
+              <p><b>PIX: tesouraria.ipeaam@gmail.com</b><br>
+                <br>
+                <div class="linha">
+                  <hr>
+                </div>
+                <br>
+              Você também pode pagar diretamente na igreja, basta comunicar a um dos números abaixo.
+              </p><br>
+
+            </div>
+          <div class="whatsapp-buttons">
+            <button onclick="sendWhatsApp('Talita')">Enviar Comprovante para Talita</button>
+            <button onclick="sendWhatsApp('Priscila')">Enviar Comprovante para Priscila</button>
+          </div>
+          <button onclick="goToPage(2)"> CONTINUAR INSCRIÇÃO / <br> VOLTAR PARA PÁGINA DE INSCRIÇÃO</button>
+  </div>
 </div>
 
 <!-- Página 5 (exemplo de página adicional) -->
@@ -773,5 +816,42 @@ footer {
     });
   }
 </script>
+  <script>
+    // Script para a logo flutuante
+    const logoElement = document.createElement("img");
+    logoElement.src = "png.png"; // Caminho para o placeholder (ou sua logo)
+    logoElement.alt = "Logo Flutuante";
+    logoElement.classList.add("floating-logo");
+    document.body.appendChild(logoElement);
+
+    function showFloatingLogo() {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      const logoSize = 50; // Deve corresponder ao tamanho no CSS
+
+      // Calcula posições aleatórias, com uma margem para não ficar colado nas bordas
+      const randomTop = Math.random() * (screenHeight - logoSize * 2) + logoSize;
+      const randomLeft = Math.random() * (screenWidth - logoSize * 2) + logoSize;
+
+      logoElement.style.top = `${randomTop}px`;
+      logoElement.style.left = `${randomLeft}px`;
+
+      // Fade-in
+      logoElement.classList.add("visible");
+
+      // Fade-out depois de alguns segundos
+      setTimeout(() => {
+        logoElement.classList.remove("visible");
+      }, 3000); // Tempo que a logo fica visível (3 segundos)
+
+      // Chama a função novamente após um intervalo aleatório
+      const randomInterval = Math.random() * 5000 + 4000; // Intervalo entre 4 e 9 segundos
+      setTimeout(showFloatingLogo, randomInterval + 1000); // +1s para dar tempo do fade-out
+    }
+
+    // Inicia a animação após um pequeno delay inicial
+    setTimeout(showFloatingLogo, 2000);
+
+  </script>
 </body>
 </html>
