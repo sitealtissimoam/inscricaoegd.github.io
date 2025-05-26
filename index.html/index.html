@@ -1,4 +1,4 @@
-c:\Users\ALTISSIMO 001\Downloads\Novo Projeto (1).png<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -15,15 +15,13 @@ c:\Users\ALTISSIMO 001\Downloads\Novo Projeto (1).png<!DOCTYPE html>
       font-family: 'Montserrat', sans-serif;
     }
     body {
-      /* background-image: url(\'fundo\\ site\\ 2.png\'); */ /* Comentado para remover a imagem de fundo */
-      background: linear-gradient(-45deg, #0a0a1a, #1a0a1a, #0a1a0a, #1a1a0a);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      background-image: url('fundo site 2.png'); /* Imagem de fundo original restaurada */
+      background-size: cover; /* Garantir que a imagem cubra o fundo */
       background-position: center;
       background-repeat: no-repeat;
       height: 100vh;
-      overflow-x: hidden;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      overflow: hidden; /* Mantido para evitar barras de rolagem */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra de texto original */
     }
     
     .page {
@@ -73,12 +71,12 @@ c:\Users\ALTISSIMO 001\Downloads\Novo Projeto (1).png<!DOCTYPE html>
 }
 
 .glass-container {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(83, 71, 71, 0.274);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 20px;
-  width: 100%;
+  width: 200%;
   max-width: 400px;
   text-align: center;
   color: white;
@@ -392,7 +390,9 @@ footer {
     .botao-grande {
   text-align: center;
   font-size: 25px;
-  padding: 20px 30px;
+  width: 100%;
+  padding: 20px;
+  margin-top: 0%;
 }
 
 .highlight-box4 {
@@ -445,24 +445,6 @@ footer {
       }
     }
 
-    /* Estilos para a logo flutuante */
-    .floating-logo {
-      position: fixed;
-      width: 50px; /* Tamanho pequeno */
-      height: 50px;
-      opacity: 0;
-      transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
-      z-index: 1000; /* Garante que fique acima de outros elementos */
-      pointer-events: none; /* Para não interferir com cliques */
-      filter: drop-shadow(0 0 10px rgba(70, 70, 37, 0)); /* Efeito brilhante */
-      transform: scale(0.8); /* Começa um pouco menor */
-    }
-
-    .floating-logo.visible {
-      opacity: 0.7; /* Um pouco transparente para não ser muito intrusivo */
-      transform: scale(1); /* Tamanho normal ao aparecer */
-    }
-
     @keyframes gradientBG {
       0% {
         background-position: 0% 50%;
@@ -486,11 +468,9 @@ footer {
       <img src="site tpo.png" alt="Imagem EGD">
       <p><h1>SEJA BEM-VINDO AO SITE DE INSCRIÇÃO EGD 2026.</h1>
     </div> 
-    <br>
       <div class="highlight-box4">
-        <br><h2>INSCREVA-SE CLICANDO NO BOTÃO ABAIXO:</h2><br>
-    <button class="botao-grande" onclick="goToPage(2)">ACESSAR ÁREA DE INSCRIÇÃO</button> <br>  
-    </div>
+    <button class="botao-grande" onclick="goToPage(2)">ACESSAR ÁREA DE INSCRIÇÃO</button>
+  </div>
   </div>
 </div>
 
@@ -520,7 +500,7 @@ footer {
        <br>
       <div class="video-container">
         <video
-        autoplay loop muted playsinline controls preload="auto">
+        autoplay loop playsinline controls preload="auto">
           <source src="SnapInsta.mp4" type="video/mp4">
           Seu navegador não suporta vídeos.
         </video>
@@ -569,37 +549,70 @@ footer {
       <h2>E AÍ, TOPA FAZER PARTE TAMBÉM?</h2> <h4>COMECE AGORA MESMO A SUA INSCRIÇÃO</h4>
       <br>
         <input type="text" name="nome" id="nome" placeholder="Nome e Sobrenome" required>
-        <input type="tel" name="telefone" id="telefone" placeholder="Número de Telefone" required>
-        <input type="email" name="email" id="email" placeholder="E-mail" required>
         <input type="number" name="idade" id="idade" placeholder="Sua Idade" required>
+        <input type="tel" name="telefone" id="telefone" placeholder="Número de Telefone" required>
+        <input type="email" name="email" id="email" placeholder="E-mail (opcional)">
         <input type="text" name="responsavel" id="responsavel" placeholder="Nome e Número de um Responsável" required>
 
-      <select name="congregacao" id="congregacao" required>
-        <option value="">Faz parte de alguma congregação? (selecione uma opção) </option>
-        <option value="Congregação da Sede">Congregação da Sede</option>
-        <option value="Congregação do Armando Mendes">Congregação do Armando Mendes</option>
-        <option value="Congregação do Alfredo Nascimento">Congregação do Alfredo Nascimento</option>
-        <option value="Congregação da Cidade de Deus">Congregação da Cidade de Deus</option>
-        <option value="Congregação do Valparaíso">Congregação do Valparaíso</option>
-        <option value="Outros - Interior">Outros - Interior</option>
-        <option value="ainda">Ainda não faço parte de uma</option>
-       </select>
+      <select name="faz_congregacao" id="faz_congregacao" onchange="checkSelectConditionalField(this.value, 'congregacao_options', 'congregacao_escolha')" required>
+        <option value="">Faz parte de alguma congregação? (selecione uma opção)</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
 
-        <select name="ga" id="ga" required>
+      <div id="congregacao_options" class="hidden" style="margin-top: 10px; display: none;">
+          <select name="congregacao_escolha" id="congregacao_escolha" disabled>
+            <option value="">Selecione sua congregação</option>
+            <option value="Congregação da Sede">Congregação da Sede</option>
+            <option value="Congregação do Armando Mendes">Congregação do Armando Mendes</option>
+            <option value="Congregação do Alfredo Nascimento">Congregação do Alfredo Nascimento</option>
+            <option value="Congregação da Cidade de Deus">Congregação da Cidade de Deus</option>
+            <option value="Congregação do Valparaíso">Congregação do Valparaíso</option>
+            <option value="Outros - Interior">Outros - Interior</option>
+           </select>
+      </div>
+
+      <select name="faz_ga" id="faz_ga" required>
         <option value="">Faz Parte de Algum GA? (selecione uma opção)</option>
-        <option value="nao">Sim</option>
-        <option value="sim">Não</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
       </select>
 
-        <input type="text" name="medicamentos" id="medicamentos" placeholder="Faz Uso de Medicamentos?" required>
-        <textarea name="restricoes" id="restricoes" placeholder="Tem Alguma Restrição Alimentar, Necessidades Especiais ou Alguma Limitação Física?" required rows="2" style="width: 100%; resize: vertical;"></textarea>
-        
-        <select name="egdAntes" id="egdAntes" required>
-        <option value="">Já foi participou de algum EGD? (selecione uma opção) </option>
-        <option value="Todos">Participei de todos</option>
-        <option value="Alguns">Já participei de alguns</option>
-        <option value="nunca">Irei pela primeira vez</option>
+      <select name="faz_medicamentos" id="faz_medicamentos" onchange="checkSelectConditionalField(this.value, 'medicamentos_details', 'medicamentos_texto')" required>
+        <option value="">Faz Uso de Medicamentos? (selecione uma opção)</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
       </select>
+
+      <div id="medicamentos_details" class="hidden" style="margin-top: 10px; display: none;">
+        <input type="text" name="medicamentos_texto" id="medicamentos_texto" placeholder="Quais medicamentos você utiliza?" disabled>
+      </div>
+
+      <select name="tem_restricoes" id="tem_restricoes" onchange="checkSelectConditionalField(this.value, 'restricoes_details', 'restricoes_texto')" required>
+        <option value="">Tem Alguma Restrição Alimentar, Necessidades Especiais ou</option>
+        <option value="">Alguma Limitação Física? (selecione uma opção)</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+
+      <div id="restricoes_details" class="hidden" style="margin-top: 10px; display: none;">
+        <textarea name="restricoes_texto" id="restricoes_texto" placeholder="Descreva suas restrições ou necessidades especiais" rows="" style="width: 100%; resize: vertical;" disabled></textarea>
+      </div>
+        
+      <select name="participou_egd" id="participou_egd" onchange="checkSelectConditionalField(this.value, 'egd_options', 'egd_escolha')" required>
+        <option value="">Já participou de algum EGD? (selecione uma opção)</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+
+      <div id="egd_options" class="hidden" style="margin-top: 10px; display: none;">
+        <select name="egd_escolha" id="egd_escolha" disabled>
+          <option value="">Selecione sua experiência</option>
+          <option value="Todos">Participei de todos</option>
+          <option value="Alguns">Já participei de alguns</option>
+          <option value="nunca">Irei pela primeira vez</option>
+        </select>
+      </div>
       
       <select name="transporte" id="transporte" required>
         <option value="">Selecione seu meio de transporte (selecione uma opção) </option>
@@ -623,7 +636,7 @@ footer {
   </div>
       <br>
       <div class="highlight-box">
-      <p> <br>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados não seram usados para outros fins. <br>
+      <p> <br>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados pessoais não seram usados para outros fins. <br>
         <br></p>
       </div>
       <button type="submit">ENVIAR MINHA INSCRIÇÃO</button>
@@ -647,7 +660,7 @@ footer {
     </div>
     <div class="highlight-box4"> <br>
   <div class="video-preview">
-  <video controls muted loop >
+  <video controls loop playsiline autoplay>
     <source src="caminhando.mp4" type="video/mp4">
     Seu navegador não suporta vídeo HTML5.
   </video>
@@ -663,6 +676,7 @@ footer {
   
     <button onclick="goToPage(1)"> VOLTAR PARA PÁGINA INICIAL</button>
     <button onclick="goToPage(2)"> REALIZAR NOVA INSCRIÇÃO</button>
+    <button onclick="goToPage(4)">ACESSAR ÁREA DE PAGAMENTO</button>
     <br>
     <br>
 </div>
@@ -735,16 +749,54 @@ footer {
 <iframe name="hiddenFrame" style="display:none;"></iframe>
 
 <script>
-  function goToPage(pageNumber, push = true) {
-    // Verifica se a página existe antes de tentar navegar para ela
+    function checkSelectConditionalField(value, containerId, fieldId) {
+      const container = document.getElementById(containerId);
+      const field = document.getElementById(fieldId);
+      const show = value === 'sim';
+      
+      if (show) {
+        container.style.display = 'block';
+        field.disabled = false;
+        field.required = true;
+      } else {
+        container.style.display = 'none';
+        field.disabled = true;
+        field.required = false;
+        // Limpar o valor do campo quando escondido
+        if (field.tagName === 'SELECT') {
+          field.selectedIndex = 0;
+        } else if (field.tagName === 'TEXTAREA') {
+          field.value = '';
+        } else {
+          field.value = '';
+        }
+      }
+    }
+
+    function goToPage(pageNumber, push = true) {    // Verifica se a página existe antes de tentar navegar para ela
     const targetPage = document.getElementById('page' + pageNumber);
     if (!targetPage) {
       console.error('Página ' + pageNumber + ' não encontrada!');
       return;
     }
-    
+    // Pausa todos os vídeos antes de trocar de página
+    document.querySelectorAll('video').forEach(video => {
+      video.pause();
+      // Opcional: resetar o tempo do vídeo ao pausar
+      // video.currentTime = 0;
+    });
+
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     targetPage.classList.add('active');
+
+    // Toca os vídeos apenas na página que se tornou ativa
+    targetPage.querySelectorAll('video').forEach(video => {
+      // Tenta tocar o vídeo. O atributo 'muted' ajuda a evitar problemas com autoplay
+      // O atributo 'playsinline' também é importante para mobile
+      video.play().catch(error => {
+        console.log("Erro ao tentar tocar vídeo automaticamente (pode precisar de interação ou estar sem 'muted'): ", error);
+      });
+    });
 
     if (push) {
       history.pushState({ page: pageNumber }, '', '#page' + pageNumber);
@@ -816,42 +868,32 @@ footer {
     });
   }
 </script>
-  <script>
-    // Script para a logo flutuante
-    const logoElement = document.createElement("img");
-    logoElement.src = "png.png"; // Caminho para o placeholder (ou sua logo)
-    logoElement.alt = "Logo Flutuante";
-    logoElement.classList.add("floating-logo");
-    document.body.appendChild(logoElement);
+<script>
+    // Script para gerar partículas
+    const container = document.getElementById("particle-container");
+    const numberOfParticles = 50; // Ajuste a quantidade conforme necessário
 
-    function showFloatingLogo() {
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
-      const logoSize = 50; // Deve corresponder ao tamanho no CSS
+    for (let i = 0; i < numberOfParticles; i++) {
+      const particle = document.createElement("div");
+      particle.classList.add("particle");
 
-      // Calcula posições aleatórias, com uma margem para não ficar colado nas bordas
-      const randomTop = Math.random() * (screenHeight - logoSize * 2) + logoSize;
-      const randomLeft = Math.random() * (screenWidth - logoSize * 2) + logoSize;
+      // Tamanho aleatório
+      const size = Math.random() * 5 + 2; // Tamanho entre 2px e 7px
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
 
-      logoElement.style.top = `${randomTop}px`;
-      logoElement.style.left = `${randomLeft}px`;
+      // Posição inicial aleatória (na parte inferior da tela)
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.bottom = `-${size}px`; // Começa logo abaixo da tela
 
-      // Fade-in
-      logoElement.classList.add("visible");
+      // Delay e duração da animação aleatórios para dessincronizar
+      const delay = Math.random() * 10; // Delay de até 10s
+      const duration = Math.random() * 5 + 8; // Duração entre 8s e 13s
+      particle.style.animationDelay = `${delay}s`;
+      particle.style.animationDuration = `${duration}s`;
 
-      // Fade-out depois de alguns segundos
-      setTimeout(() => {
-        logoElement.classList.remove("visible");
-      }, 3000); // Tempo que a logo fica visível (3 segundos)
-
-      // Chama a função novamente após um intervalo aleatório
-      const randomInterval = Math.random() * 5000 + 4000; // Intervalo entre 4 e 9 segundos
-      setTimeout(showFloatingLogo, randomInterval + 1000); // +1s para dar tempo do fade-out
+      container.appendChild(particle);
     }
-
-    // Inicia a animação após um pequeno delay inicial
-    setTimeout(showFloatingLogo, 2000);
-
   </script>
 </body>
 </html>
