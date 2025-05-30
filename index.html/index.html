@@ -71,7 +71,7 @@
 }
 
 .glass-container {
-  background: rgba(83, 71, 71, 0.274);
+  background: rgba(0, 0, 0, 0.322);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -81,10 +81,12 @@
   text-align: center;
   color: white;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  overflow: auto;
   transition: transform 0.5s ease, opacity 0.5s ease;
   opacity: 0;
   transform: translateY(30px);
+  overflow: scroll;
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;
 }
 
 .page.active .glass-container {
@@ -108,6 +110,7 @@
       transition: transform 0.5s ease, opacity 0.5s ease;
       opacity: 0;
       transform: translateY(30px);
+      font-family: 'Montserrat', sans-serif;
    }
 
    .page.active .blur-box {
@@ -190,9 +193,9 @@
         padding: 1px;
         margin-top: 10px;
         background-color:#00000059;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 16px;
+        font-size: 15px;
         transform: scale(1.0);
+        font-family: 'Montserrat', sans-serif;
     }
     .highlight-box2 {
         border-radius: 10px;
@@ -439,6 +442,27 @@ footer {
   border-radius: 23px;
 }
 
+.highlight-box7 {
+  border: 1px solid #082d55;
+  text-align: center;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 0%;
+        background-color:#0000004d;
+        font-family: Verdrgba(0, 0, 0, 0.555)va, Tahoma, sans-serif;
+        font-size: 15px;
+}
+.highlight-box8 {
+  border: 1px solid #082d55;
+  text-align: center;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 0%;
+        background-color:#0000004d;
+        font-family: Verdrgba(0, 0, 0, 0.555)va, Tahoma, sans-serif;
+        font-size: 15px;
+}
+
     @media (min-width: 768px) {
       .glass-container {
         max-width: 600px;
@@ -464,11 +488,12 @@ footer {
 <!-- Página 1 -->
 <div class="page active" id="page1">
   <div class="glass-container">
-    <div class="highlight-box4">
+    <div class="highlight-box7">
       <img src="site tpo.png" alt="Imagem EGD">
       <p><h1>SEJA BEM-VINDO AO SITE DE INSCRIÇÃO EGD 2026.</h1>
     </div> 
-      <div class="highlight-box4">
+    <br>
+      <div class="highlight-box8">
     <button class="botao-grande" onclick="goToPage(2)">ACESSAR ÁREA DE INSCRIÇÃO</button>
   </div>
   </div>
@@ -629,10 +654,10 @@ footer {
       </div>
   <br>
   <div class="consent-wrapper">
-    <label class="consent-container">
+    <div class="consent-container">
       <input type="checkbox" name="consent" id="consent" required>
-      Estou ciente de que preciso <a href="https://contate.me/5592982358893" target="_blank">pagar o ingresso de R$270</a>
-    </label>
+      <a href="javascript:void(0);" onclick="goToPage(5)" style="text-decoration: underline; color: #cfe8f9; cursor: pointer;">Termo de Consentimento</a>
+    </div>
   </div>
       <br>
       <div class="highlight-box">
@@ -696,10 +721,9 @@ footer {
           </div>
   <br>
              <div class="imgpix">
-               <a href="https://www.exemplo.com" target="_blank">
                <img src="pix site.png" alt="Descrição da imagem" class="imagem">
-               </a>
              </div>
+
             <div class="highlight-box"><br>
               <p><b>PIX: tesouraria.ipeaam@gmail.com</b><br>
                 <br>
@@ -867,33 +891,6 @@ footer {
       }
     });
   }
-</script>
-<script>
-    // Script para gerar partículas
-    const container = document.getElementById("particle-container");
-    const numberOfParticles = 50; // Ajuste a quantidade conforme necessário
-
-    for (let i = 0; i < numberOfParticles; i++) {
-      const particle = document.createElement("div");
-      particle.classList.add("particle");
-
-      // Tamanho aleatório
-      const size = Math.random() * 5 + 2; // Tamanho entre 2px e 7px
-      particle.style.width = `${size}px`;
-      particle.style.height = `${size}px`;
-
-      // Posição inicial aleatória (na parte inferior da tela)
-      particle.style.left = `${Math.random() * 100}%`;
-      particle.style.bottom = `-${size}px`; // Começa logo abaixo da tela
-
-      // Delay e duração da animação aleatórios para dessincronizar
-      const delay = Math.random() * 10; // Delay de até 10s
-      const duration = Math.random() * 5 + 8; // Duração entre 8s e 13s
-      particle.style.animationDelay = `${delay}s`;
-      particle.style.animationDuration = `${duration}s`;
-
-      container.appendChild(particle);
-    }
   </script>
 </body>
 </html>
