@@ -188,7 +188,7 @@
     background-color: #2980b9;
   }
     .highlight-box {
-        border: 1px solid #ffffff;
+        border: 1px solid #ffffff00;
         border-radius: 10px;
         padding: 1px;
         margin-top: 10px;
@@ -235,7 +235,7 @@
 .video-item {
 
   border: 3px solid #0059ffda;
-  box-shadow: 0 0 10px #0059ffda, 0 0 50px #0059ffda;
+  box-shadow: 0 0 10px #0059ffda, 0 0 50px #0059ff5d;
   border-radius: 20px;
   position: relative;
   width: 30%; /* Define a largura de cada vídeo como 30% */
@@ -306,7 +306,7 @@ width: 100%;
 background: rgba(0, 0, 0, 0.8);
 color: #fff;
 text-align: center;
-padding: 1px;
+padding: 10px;
 }
 .form-warning {
             border: solid 2px rgb(255, 0, 0);
@@ -365,7 +365,7 @@ footer {
   width: 100%;
   color: white;
   text-align: center;
-  padding: 5px 0;
+  padding: 0px 0;
   z-index: 9999; /* para aparecer acima das páginas */
 }
 
@@ -443,7 +443,7 @@ footer {
 }
 
 .highlight-box7 {
-  border: 1px solid #082d55;
+  border: 1px solid #082d5500;
   text-align: center;
         border-radius: 10px;
         padding: 20px;
@@ -453,7 +453,7 @@ footer {
         font-size: 15px;
 }
 .highlight-box8 {
-  border: 1px solid #082d55;
+  border: 1px solid #082d5500;
   text-align: center;
         border-radius: 10px;
         padding: 10px;
@@ -462,6 +462,12 @@ footer {
         font-family: Verdrgba(0, 0, 0, 0.555)va, Tahoma, sans-serif;
         font-size: 15px;
 }
+
+.botaoenviar {
+  width: 100%;
+  padding: 25px;
+}
+
 
     @media (min-width: 768px) {
       .glass-container {
@@ -494,7 +500,7 @@ footer {
     </div> 
     <br>
       <div class="highlight-box8">
-    <button class="botao-grande" onclick="goToPage(2)">ACESSAR ÁREA DE INSCRIÇÃO</button>
+    <button class="botao-grande" onclick="goToPage(2)">CLIQUE AQUI PARA ACESSAR ÁREA DE INSCRIÇÃO</button>
   </div>
   </div>
 </div>
@@ -664,11 +670,12 @@ footer {
       <p> <br>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados pessoais não seram usados para outros fins. <br>
         <br></p>
       </div>
-      <button type="submit">ENVIAR MINHA INSCRIÇÃO</button>
+      <button class="botaoenviar" type="submit">CLIQUE AQUI PARA ENVIAR SUA INSCRIÇÃO</button>
     </form>
     
     <!-- Botão de pagamento FORA do formulário -->
-    <button onclick="goToPage(4)">ACESSAR ÁREA DE PAGAMENTO</button>
+    <button onclick="goToPage(4)" style="background-color: #ff0000; color: white; border: none; padding: 10px 20px; border-radius: 5px;">
+  ÁREA DE PAGAMENTO
   </div>
   <br>
   <br>
@@ -701,7 +708,6 @@ footer {
   
     <button onclick="goToPage(1)"> VOLTAR PARA PÁGINA INICIAL</button>
     <button onclick="goToPage(2)"> REALIZAR NOVA INSCRIÇÃO</button>
-    <button onclick="goToPage(4)">ACESSAR ÁREA DE PAGAMENTO</button>
     <br>
     <br>
 </div>
@@ -731,15 +737,15 @@ footer {
                   <hr>
                 </div>
                 <br>
-              Você também pode pagar diretamente na igreja, basta comunicar a um dos números abaixo.
+              Você também pode pagar diretamente na igreja usando cartão, basta comunicar a um dos números abaixo:
               </p><br>
 
             </div>
           <div class="whatsapp-buttons">
-            <button onclick="sendWhatsApp('Talita')">Enviar Comprovante para Talita</button>
-            <button onclick="sendWhatsApp('Priscila')">Enviar Comprovante para Priscila</button>
+            <button onclick="sendWhatsApp('Talita')">ENVIAR COMPROVANTE PARA TALITA</button>
+            <button onclick="sendWhatsApp('Priscila')">ENVIAR COMPROVANTE PARA PRISCILA</button>
           </div>
-          <button onclick="goToPage(2)"> CONTINUAR INSCRIÇÃO / <br> VOLTAR PARA PÁGINA DE INSCRIÇÃO</button>
+          <button onclick="goToPage(2)"> CONTINUAR INSCRIÇÃO / VOLTAR</button>
   </div>
 </div>
 
