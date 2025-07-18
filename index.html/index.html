@@ -495,7 +495,9 @@ footer {
 <div class="page active" id="page1">
   <div class="glass-container">
     <div class="highlight-box7">
-      <img src="site tpo.png" alt="Imagem EGD">
+      <video src="SnapInsta.mp4" style="width: 100%; border-radius: 10px;"></video>
+      <br>
+      <br>
       <p><h1>SEJA BEM-VINDO AO SITE DE INSCRIÇÃO EGD 2026.</h1>
     </div> 
     <br>
@@ -603,12 +605,6 @@ footer {
            </select>
       </div>
 
-      <select name="faz_ga" id="faz_ga" required>
-        <option value="">Faz Parte de Algum GA? (selecione uma opção)</option>
-        <option value="sim">Sim</option>
-        <option value="nao">Não</option>
-      </select>
-
       <select name="faz_medicamentos" id="faz_medicamentos" onchange="checkSelectConditionalField(this.value, 'medicamentos_details', 'medicamentos_texto')" required>
         <option value="">Faz Uso de Medicamentos? (selecione uma opção)</option>
         <option value="sim">Sim</option>
@@ -665,11 +661,7 @@ footer {
       <a href="javascript:void(0);" onclick="goToPage(5)" style="text-decoration: underline; color: #cfe8f9; cursor: pointer;">Termo de Consentimento</a>
     </div>
   </div>
-      <br>
-      <div class="highlight-box">
-      <p> <br>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados pessoais não seram usados para outros fins. <br>
-        <br></p>
-      </div>
+      
       <button class="botaoenviar" type="submit">CLIQUE AQUI PARA ENVIAR SUA INSCRIÇÃO</button>
     </form>
     
@@ -704,10 +696,10 @@ footer {
               @jovensconvictos.am <br>
                       <br></a>
 </div>
-              
+              <div class="form-warning" style="border-radius: 15px; border-color: rgba(0, 255, 255, 0);" ><br><p><b>Aviso: atente-se a data e o horário check-in.</b></p><br></div>
   
     <button onclick="goToPage(1)"> VOLTAR PARA PÁGINA INICIAL</button>
-    <button onclick="goToPage(2)"> REALIZAR NOVA INSCRIÇÃO</button>
+    <button onclick="goToPage(2)" style="background-color: #440091; color: white; border: none; padding: 10px 20px; border-radius: 5px;" > REALIZAR NOVA INSCRIÇÃO</button>
     <br>
     <br>
 </div>
@@ -715,8 +707,8 @@ footer {
 
 <!-- Página 4 -->
 <div class="page" id="page4">
-  <div class="blur-box">
-       <div form id="pagamento" class="blur-box"> <br>
+  <div class="glass-container">
+       <div form id="pagamento" class="highlight-box"> <br>
          <h1>ÁREA DE PAGAMENTO</h1>
         <h5>REALIZE AQUI O PAGAMENTO DO SEU INGRESSO</h5> <br>
        </div>
@@ -742,10 +734,10 @@ footer {
 
             </div>
           <div class="whatsapp-buttons">
-            <button onclick="sendWhatsApp('Talita')">ENVIAR COMPROVANTE PARA TALITA</button>
-            <button onclick="sendWhatsApp('Priscila')">ENVIAR COMPROVANTE PARA PRISCILA</button>
+            <button onclick="sendWhatsApp('Talita')" style="background-color: #ff0000; color: white; border: none; padding: 10px 20px; border-radius: 5px; padding: 20px;" >ENVIAR COMPROVANTE PARA TALITA</button>
+            <button onclick="sendWhatsApp('Priscila')" style="background-color: #ff0000; color: white; border: none; padding: 10px 20px; border-radius: 5px; padding: 20px; " >ENVIAR COMPROVANTE PARA PRISCILA</button>
           </div>
-          <button onclick="goToPage(2)"> CONTINUAR INSCRIÇÃO / VOLTAR</button>
+          <button onclick="goToPage(2)">VOLTAR</button>
   </div>
 </div>
 
@@ -796,14 +788,28 @@ footer {
         Ao finalizar a inscrição, você declara estar de acordo com todos os itens acima e autoriza o uso de sua imagem conforme descrito neste termo, nos termos da legislação vigente.
         
         Este termo possui validade legal mediante a confirmação da inscrição.
+<br>
+        <br><p><b>5.Política de Reembolso</b><br>
+          A contribuição feita no momento da inscrição é usada para cobrir os custos do encontro, como alimentação, materiais, transporte, hospedagem e outras despesas necessárias para o bom andamento do evento.
+
+Por isso, <b>se a pessoa desistir de participar ou não comparecer no dia do evento, o valor da inscrição não será devolvido.</b> Isso acontece porque, ao fazer a inscrição, o valor já começa a ser investido nos preparativos do encontro.
+
+Caso a pessoa <b>avise com antecedência mínima de 7 (sete) dias antes do evento</b> sobre sua desistência, a organização vai avaliar a possibilidade de devolver parte ou todo o valor, dependendo do que já tiver sido gasto.
+
+Ao aceitar este termo e concluir a inscrição, o participante declara estar ciente e de acordo com essa condição.</p>
+<br>
+<div class="highlight-box">
+      <p> <br><b>Ao enviar a inscrição você está ciente de que precisa pagar o ingresso de R$270 - Seus dados pessoais não seram usados para outros fins.</b> <br>
+        <br></p>
+      </div>
+
 <br><br>
         <u>Atenciosamente: Coordenação do Encontro 2026</u>
       </p>
 
 
     </div>
-    <button onclick="goToPage(1)">VOLTAR PARA PÁGINA INICIAL</button>
-    <button onclick="goToPage(2)">IR PARA INSCRIÇÃO</button>
+    <button onclick="goToPage(2)">VOLTAR</button>
     <button onclick="goToPage(4)" style="background-color: #ff0000; color: white; border: none; padding: 10px 20px; border-radius: 5px;">
   ÁREA DE PAGAMENTO
 </button>
